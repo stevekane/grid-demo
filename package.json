@@ -1,0 +1,34 @@
+{
+  "name": "grid-demo",
+  "version": "1.0.0",
+  "description": "Demonstration app of UI construction pattern for grid, drawer with layers",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test",
+    "server": "http-server",
+    "build": "browserify -d -o public/dist/app.js src/main.js",
+    "watch": "http-server & watchify -d -t reactify -o public/dist/app.js src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/stevekane/grid-demo.git"
+  },
+  "keywords": [
+    "grid"
+  ],
+  "author": "Steve Kane",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stevekane/grid-demo/issues"
+  },
+  "homepage": "https://github.com/stevekane/grid-demo#readme",
+  "dependencies": {
+    "dat-gui": "^0.5.0",
+    "mouse-signal": "^2.0.0",
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8"
+  },
+  "devDependencies": {
+    "reactify": "^1.1.1"
+  }
+}

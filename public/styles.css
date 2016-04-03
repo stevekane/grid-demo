@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+.layer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+#overlay {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+#viewport {
+  background-color: white;
+}
+
+#drawer {
+  text-align: center;
+  color: black;
+  background-color: gray;
+  width: 100%;
+}
+
+#drawer #edge {
+  width: 100%;
+  background-color: black;
+  height: 8px;
+  cursor: row-resize;
+  padding: 0px;
+  color: white;
+  text-align: center;
+  font-size: 8px;
+}
+
+#grid {
+  width: 100%;
+  position: relative;
+}
+
+#cells {
+  display: flex;
+  position: absolute;
+  flex-flow: row wrap;
+  width: 100%;
+}
+
+.cell {
+  border-radius: 10%;
+  margin: auto;
+  padding: 1px;
+}
+
+.tile {
+  height: 100%;
+  width: 100%;
+  background-color: gray;
+  opacity: 0.1;
+  border-radius: 3px;
+}
+
+#cards {
+  background-color: none;
+}
+
+.card {
+  position: absolute;
+  background-color: gray;
+}
