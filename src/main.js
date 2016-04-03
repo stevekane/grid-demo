@@ -1,6 +1,7 @@
 var R = require('react')
 var DOM = require('react-dom')
 var dat = require('dat-gui')
+var lorem = require('lorem-ipsum')
 var OVERLAY = document.getElementById('overlay')
 var GRID = document.getElementById('grid')
 var CELLS = document.getElementById('cells')
@@ -9,7 +10,7 @@ var DRAWER = document.getElementById('drawer')
 var DRAWER_EDGE = document.getElementById('edge')
 
 function update () {
-
+  
 }
 
 function render() {
@@ -31,7 +32,6 @@ function render() {
       CELLS.appendChild(CellElement(cellWidth, cellHeight))
     }
   }
-  
   
   for (var l = 0, c; c = state.grid.cards[l]; l++) {
     CARDS.appendChild(CardElement(state.grid, c))
