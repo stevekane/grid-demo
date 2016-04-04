@@ -9,7 +9,7 @@ module.exports = React.createClass({
     var { mouse, queue } = this.props
     var bcr = this.refs.el.getBoundingClientRect()
     var mouseHeight = mouse.current[1] - bcr.top
-    var height = (1 - mouseHeight / bcr.bottom) * 100
+    var height = (1 - mouseHeight / (bcr.bottom - bcr.top)) * 100
 
     queue.push({ type: 'drawer.resize', height: height })
   },

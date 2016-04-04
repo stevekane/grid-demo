@@ -47,23 +47,21 @@ function update (dT) {
 }
 
 function render () {
-  //GUI.render(gui)
+  GUI.render(gui)
   DOM.render(<SequenceDetailsUI mouse={ mouse } state={ state } queue={ queue }/>, UI)
 }
 
-function makeLoop () {
-  return function loop () {
-    ClockSignal.update(clock)
-    MouseSignal.update(clock.dT, mouse)
-    update(clock.dT)
-    render()
-    requestAnimationFrame(loop) 
-  }
+function loop () {
+  ClockSignal.update(clock)
+  MouseSignal.update(clock.dT, mouse)
+  update(clock.dT)
+  render()
+  requestAnimationFrame(loop) 
 }
 
-//GUI_TARGET.appendChild(gui.domElement)
+GUI_TARGET.appendChild(gui.domElement)
 for (var key in mouse.eventListeners) {
   document.body.addEventListener(key, mouse.eventListeners[key])
 }
 
-requestAnimationFrame(makeLoop())
+requestAnimationFrame(loop)
