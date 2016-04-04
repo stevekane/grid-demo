@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node test",
-    "server": "http-server",
-    "build": "browserify -d -o public/dist/app.js src/main.js",
-    "watch": "http-server & watchify -d -t reactify -o public/dist/app.js src/main.js"
+    "watch": "node scripts/watch"
   },
   "repository": {
     "type": "git",
@@ -26,10 +24,16 @@
     "dat-gui": "^0.5.0",
     "lorem-ipsum": "^1.0.3",
     "mouse-signal": "^2.0.0",
+    "node-uuid": "^1.4.7",
     "react": "^0.14.8",
     "react-dom": "^0.14.8"
   },
   "devDependencies": {
-    "reactify": "^1.1.1"
+    "babel-plugin-transform-es2015-destructuring": "^6.6.5",
+    "babel-plugin-transform-object-rest-spread": "^6.6.5",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
+    "reactify": "^1.1.1",
+    "watchify": "^3.7.0"
   }
 }
