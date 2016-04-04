@@ -70,10 +70,8 @@ function GridComponent ({ grid, height, resizing }) {
     flexFlow: 'row wrap'
   }
 
-  if (resizing) {
-    for (var i = 0; i < cellCount; i++) {
-      cells.push(<CellComponent key={ i } width={ cellWidth } height= { cellHeight } />)
-    }
+  for (var i = 0; i < cellCount; i++) {
+    cells.push(<CellComponent key={ i } visible={ resizing } width={ cellWidth } height= { cellHeight } />)
   }
 
   for (var j = 0, card; card = cards[j]; j++) {
@@ -92,11 +90,13 @@ function GridComponent ({ grid, height, resizing }) {
   ) 
 }
 
-function CellComponent ({ width, height }) {
+function CellComponent ({ visible, width, height }) {
   var style = {
     width: width,
-    height: height
+    height: height,
+    opacity: visible ? 1 : 0
   }
+
   return (
     <div className="cell" style={ style }></div>
   )

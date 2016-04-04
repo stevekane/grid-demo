@@ -24,6 +24,7 @@ body,
 
 .cell {
   border: 1px solid gray;
+  transition: opacity 0.3s ease-in 0.1s;
 }
 
 .card {
@@ -32,9 +33,6 @@ body,
   overflow-y: scroll;
   overflow-x: hidden;
 }
-
-
-
 
 .edge {
   width: 100%;
