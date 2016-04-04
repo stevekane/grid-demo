@@ -7,6 +7,7 @@ budo('./src/main.js', {
   port: 8080,
   dir: 'public',
   serve: 'public/dist/app.js',
+  verbose: true,
   browserify: {
     debug: true,
     out: 'public/dist/app.js',
@@ -21,4 +22,7 @@ budo('./src/main.js', {
 })
 .on('update', function (buffer) {
   console.log('fired')
+})
+.on('error', function (e) {
+  console.log(e)
 })

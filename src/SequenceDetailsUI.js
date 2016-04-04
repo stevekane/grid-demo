@@ -38,22 +38,24 @@ module.exports = React.createClass({
   }
 })
 
-function DrawerComponent (props) {
-  var { drawer, queue, resizing } = props
-  var onMouseDown = function () { 
-    queue.push({ type: 'drawer.resize-start' })
-  }
-  var style = {
-    height: props.height 
-  }
+var DrawerComponent = React.createClass({
+  onMouseDown: function () {
+    this.props.queue.push({ type: 'drawer.resize-start' })
+  },
 
-  return (
-    <div className="drawer" style={ style }>
-      <div className="edge edge-top" onMouseDown={ onMouseDown }></div>
-      <h2>DRAWER</h2>
-    </div>
-  )  
-}
+  render: function () {
+    var { resizing, height, drawer, queue } = this.props
+    var style = {
+      height: height
+    }
+
+    return (
+      <div className="drawer" style={ style }>
+        <div className="drawer icon" onMouseDown={ this.onMouseDown }></div>
+      </div>
+    )  
+  }
+})
 
 function GridComponent ({ grid, height, resizing }) {
   var { rowCount, columnCount, cards } = grid
@@ -75,7 +77,7 @@ function GridComponent ({ grid, height, resizing }) {
   }
 
   for (var j = 0, card; card = cards[j]; j++) {
-    cardComponents.push(<CardComponent key={ card.objectId } card={ card } grid={ grid }/>)
+    cardComponents.push(<CardComponent key={ card.objectId } content={ card.title } card={ card } grid={ grid }/>)
   }
 
   return (
@@ -102,7 +104,7 @@ function CellComponent ({ visible, width, height }) {
   )
 }    
 
-function CardComponent ({ card, grid }) {
+function CardComponent ({ card, content, grid }) {
   var x = card.x * 100 + '%'
   var y = card.y / card.height * 100 + '%'
   var width = 100 / grid.columnCount + '%'
@@ -110,13 +112,14 @@ function CardComponent ({ card, grid }) {
   var style = {
     width: width,
     height: height,
-    transform: 'translate(' + x + ',' + y + ')',
-    padding: '4px'
+    transform: 'translate(' + x + ',' + y + ')'
   }
 
   return (
     <div className="card" style={ style }>
-      { card.content }
+      <div className="content">
+        <h3 className="title">{ content }</h3>
+      </div>
     </div>
   )
 }

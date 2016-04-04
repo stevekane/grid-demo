@@ -9,6 +9,7 @@ var doAction = require('./Actions')
 var SequenceDetailsUI = require('./SequenceDetailsUI')
 var UI = document.getElementById('ui')
 var VIEWPORT = document.getElementById('viewport')
+var GUI_TARGET = document.getElementById('gui')
 var Card = Types.Card
 
 var state = {
@@ -17,8 +18,11 @@ var state = {
     rowCount: 4,
     columnCount: 8,
     cards: [
-      new Card(0, 0, 3, lorem()),
-      new Card(2, 1, 2, lorem())
+      new Card('Sample', 'Widgets', 0, 0, 1, 2),
+      new Card('Sample', 'Variables', 0, 2, 1, 2),
+      new Card('Sample', 'Script', 1, 0, 2, 4),
+      new Card('Sample', 'Heirarchy', 7, 0, 1, 4),
+      new Card('Sample', 'Details', 6, 0, 1, 4)
     ]
   },
   drawer: {
@@ -43,7 +47,7 @@ function update (dT) {
 }
 
 function render () {
-  GUI.render(gui)
+  //GUI.render(gui)
   DOM.render(<SequenceDetailsUI mouse={ mouse } state={ state } queue={ queue }/>, UI)
 }
 
@@ -57,6 +61,7 @@ function makeLoop () {
   }
 }
 
+//GUI_TARGET.appendChild(gui.domElement)
 for (var key in mouse.eventListeners) {
   document.body.addEventListener(key, mouse.eventListeners[key])
 }

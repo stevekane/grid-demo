@@ -12,6 +12,33 @@ body,
   overflow: hidden;
 }
 
+#gui {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+#viewport {
+  background-color: black;
+}
+
+.drawer {
+  background-color: rgba(71, 90, 188, 1);
+}
+
+.drawer .icon {
+  margin: auto;
+  cursor: row-resize;
+  width: 12%;
+  height: 20px;
+  border-radius: 4px 4px 0px 0px;
+  transform: translateY(-100%);
+  background-image: url(arrows.svg);
+  background-size: 12px 12px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .layers {
   position: relative;
 }
@@ -23,27 +50,29 @@ body,
 }
 
 .cell {
-  border: 1px solid gray;
-  transition: opacity 0.3s ease-in 0.1s;
+  border: 0.1px dashed rgba(2, 148, 245, 1);
+  transition: opacity 0.3s ease-in;
 }
 
 .card {
   position: absolute;
-  background-color: gray;
+  padding: 8px;
+}
+
+.card .content {
+  height: 100%;
+  background-color: rgba(71, 90, 188, 1);
+  border-radius: 4px;
+  padding: 8px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-.edge {
-  width: 100%;
-  background-color: black;
-  height: 8px;
-  padding: 0px;
+.card .content .title {
+  margin: 0;
   color: white;
-  text-align: center;
-  font-size: 8px;
-}
-
-.edge-top {
-  cursor: row-resize;
+  font-size: 16px;
+  font-family: 'Roboto' sans-serif;
+  font-weight: 100;
+  border-bottom: 1px solid white;
 }

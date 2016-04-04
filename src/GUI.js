@@ -3,7 +3,7 @@ var dat = require('dat-gui')
 module.exports = GUI
 
 function GUI ({ state, signals: { mouse, clock }}) {
-  var gui = new dat.GUI()
+  var gui = new dat.GUI({ autoPlace: false })
   var gridFolder = gui.addFolder('grid')
   var signalFolder = gui.addFolder('signals')
   var clockSignalFolder = signalFolder.addFolder('clock')
